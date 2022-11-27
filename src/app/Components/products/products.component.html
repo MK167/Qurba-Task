@@ -1,0 +1,56 @@
+<!-- Begin:: card 4 -->
+<div class="card" *ngIf="product">
+  <div class="img-enter-box">
+    <img
+      src="{{ product?.thumbnail }}"
+      class="card-img-top img-fluid img-responsive"
+      alt=""
+    />
+  </div>
+  <span class="badg"> - {{ product?.discountPercentage }}%</span>
+  <div class="card-body">
+    <h5 class="card-title">{{ product?.title }}</h5>
+    <h6 class="card-title">{{ product?.description }}.</h6>
+    <h6 class="card-title">
+      <span class="old-num"
+        >({{ product?.price }} * 10 ) <span class="normal"> USD </span></span
+      >
+      <span class="new-num"
+        >{{ product?.price }} <span class="normal"> USD</span></span
+      >
+    </h6>
+
+    <h6 class="card-title">
+      <span class="normal"
+        >Brand:<span class="new-txt"> {{ product?.brand }}</span></span
+      >
+    </h6>
+    <h6 class="card-title">
+      <span class="normal"
+        >Category:<span class="new-txt"> {{ product?.category }}</span></span
+      >
+    </h6>
+    <h6 class="card-title">
+      <span class="normal"
+        >In stock:<span class="new-txt"> {{ product?.stock }}</span></span
+      >
+    </h6>
+    <h6
+      class="card-title"
+      style="display: flex; justify-content: flex-end; align-items: center"
+    >
+      <i class="star"></i>
+      <span
+        class="new-txt"
+        style="color: #f4b000; padding-left: 5px; padding-right: 5px"
+      >
+        {{ product.rating }}
+      </span>
+      <span class="normal"> (11)</span>
+    </h6>
+
+    <button type="button" class="btn btn-primary" (click)="addProductToCart()">
+      ADD TO CART
+    </button>
+  </div>
+</div>

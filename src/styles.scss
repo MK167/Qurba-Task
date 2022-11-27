@@ -1,0 +1,10 @@
+body, html {
+  margin: 0 !important;
+}
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: #56D9D9 !important;
+  color: #000 !important;
+  border-radius: 5px !important;
+  cursor: default;
+}

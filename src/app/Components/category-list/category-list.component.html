@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="wrapper">
+    <h1>Products</h1>
+
+
+    <!-- Simple Static breadcrumb -->
+    <!-- <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Products</a></li>
+        <li class="breadcrumb-item"><a href="#">Smart Phones</a></li>
+        <li class="breadcrumb-item active" aria-current="page">iPhone</li>
+      </ol>
+    </nav> -->
+
+    <div class="row">
+      <div class="col-sm-3">
+        <!-- Begin:: Side Option -->
+        <div class="card">
+          <div class="card-body" style="width: 100%">
+            <h5 class="card-title" style="font-size: 16px">Products</h5>
+            <form>
+              <div
+                class="form-group form-check"
+                *ngFor="let category of categories"
+              >
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="{{category}}"
+                  [(ngModel)]="category.name"
+                  (input)="categoryFilter(category)"
+                />
+                <label class="form-check-label" for="{{category}}">{{
+                  category
+                }}</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-sm-3"
+        *ngFor="
+          let product of products
+            | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }
+        "
+      >
+        <!-- Begin:: card 4 -->
+        <app-products [product]="product"></app-products>
+      </div>
+    </div>
+
+    <nav
+      aria-label="Page navigation example"
+      style="display: flex; justify-content: center; margin-bottom: 150px !important;"
+    >
+      <pagination-controls
+        previousLabel=""
+        nextLabel=""
+        (pageChange)="p = $event"
+      ></pagination-controls>
+    </nav>
+  </div>
+</div>
